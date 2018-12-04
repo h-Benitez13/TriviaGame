@@ -2,7 +2,7 @@
 // empty variables for correctAnswers, wrongAnswers, intervalID (to call later)
 // and finally ones where the user ran out of time
 
-var time = 5;
+var time =15;
 
 // gotta stick with what you know kid 
 var questions = {
@@ -42,6 +42,8 @@ console.log(questions.q1);
 // once the game starts everything should eventually go in'herrrr
 function startGame() {
 
+    $('.possAns').hide();
+    
     // as the page loads, there will have the amazing title
     // the startgame button 
     // maybe ill add another button for motivational music but time will tell
@@ -55,6 +57,7 @@ function startGame() {
             $('.titleGame').remove();
             // i want it to run question 1
             quest1();
+            questOptions();
             // set the time count to inc/dec by 1 second
             intervalId = setInterval(timeCount, 1000);
 
@@ -67,6 +70,8 @@ function startGame() {
 
     function quest1() {
 
+       
+
         // create a new div to include the question
         var newDiv = $('<div class="quest_q1" style="font-size: 25px;">');
         // print the question on the html
@@ -75,30 +80,7 @@ function startGame() {
         // optionA
         // create a new div to contain the button 
 
-        var optionA = $('<button class="A  btn-secondary" /button>');
-        // print the question on the button
-        optionA.html(questions.qa);
-        // append the div from the hmtl to the new div created here
-        $('.possAns').append(optionA);
-
-        // repeat this method for options B-D
-
-        // option B
-        var optionB = $('<button class="B btn-secondary" style="margin-top: 10px;"/button>');
-        optionB.html(questions.qb);
-        $('.possAns').append(optionB);
-
-
-        // option C
-        var optionC = $('<button class="B btn-secondary" style="margin-top: 10px;"/button>');
-        optionC.html(questions.qc);
-        $('.possAns').append(optionC);
-
-        // option D
-
-        var optionD = $('<button class="B btn-secondary" style="margin-top: 10px;"/button>');
-        optionD.html(questions.qd);
-        $('.possAns').append(optionD);
+    
 
         // append the question div inside the button container so it takes
         // the position of the question
@@ -108,6 +90,64 @@ function startGame() {
 
 
     }
+    // function specifically for options of quest1
+    function questOptions() {
+        $('.possAns').show()
+        var optionA = $('.optionA');
+        // print the question on the button
+        optionA.html(questions.qa);
+        // append the div from the hmtl to the new div created here
+        $('.possAns').append(optionA);
+
+        // repeat this method for options B-D
+
+        // option B
+        var optionB = $('.optionB');
+        optionB.html(questions.qb);
+        $('.possAns').append(optionB);
+
+
+        // option C
+        var optionC = $('.optionC');
+        optionC.html(questions.qc);
+        $('.possAns').append(optionC);
+
+        // option D
+
+        var optionD = $('.optionD');
+        optionD.html(questions.qd);
+        $('.possAns').append(optionD);
+
+    }
+    // rename the options to be able to call them within the function!
+    var optionA = 'no this is patrick';
+    var optionB = questions.qb;
+    var optionC= questions.qc;
+    var optionD= questions.qd;
+
+    // fucntion to run clickable buttons 
+    function optionFunk() {
+        $('.optionA').click(function() {
+            if(optionA === questAnswers.q1 ) {
+                console.log("TRRUE");
+            } 
+        })
+        $('.optionB').click(function(){
+            if(optionB){
+                console.log("false")
+            }
+        })
+        $('.optionC').click(function(){
+            if(optionB){
+                console.log("false")
+            }
+        })
+        $('.optionD').click(function(){
+            if(optionB){
+                console.log("false")
+            }
+        })
+    } optionFunk();
 
 
 
@@ -134,6 +174,7 @@ function startGame() {
             clearInterval(intervalId);
             console.log(true);
         }
+        
 
 
 
@@ -144,17 +185,17 @@ function startGame() {
         // total incorrect answers
         // total answers ran out of time
 
-        function finalScore() {
-            $('.correct').html("Total Correct: " + correctAnswer);
-            console.log(correctAnswer);
-            $('incorrect').html("Total Incorrect: " + wrongAnswers);
-            console.log(wrongAnswers);
-            $('not-answered').html("Not Answered: " + didNotAnswer);
-            console.log(didNotAnswer);
+        // function finalScore() {
+        //     $('.correct').html("Total Correct: " + correctAnswer);
+        //     console.log(correctAnswer);
+        //     $('incorrect').html("Total Incorrect: " + wrongAnswers);
+        //     console.log(wrongAnswers);
+        //     $('not-answered').html("Not Answered: " + didNotAnswer);
+        //     console.log(didNotAnswer);
 
 
-        }
-        finalScore();
+        // }
+        // finalScore();
     }
     gamePlay();
 

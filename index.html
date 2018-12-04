@@ -19,21 +19,26 @@
     <div class="container">
         <div class="jumbotron text-center" style="margin-top: 10%; padding: 200px;">
             <h1 class="titleGame"> TRIVIA GAME</h1>
+            <div class="timeLeft"></div>
             <div class="btnContainer" style="margin-top: 10%;">
-                    <div class="timeLeft"></div>
-                </div>
-                <div class="allQuestions">
-                    <div class="possAns btn-group-vertical">
-                    </div>
-                </div>
-                <button type="button" class="btn btn-default btn-lg btn-primary startBtn" >Start</button>
+            </div>
+
+            <div class="possAns btn-group-vertical">
+                <button class="optionA btn-secondary"></button>
+                <button class="optionB btn-secondary"></button>
+                <button class="optionC btn-secondary"></button>
+                <button class="optionD btn-secondary"></button>
 
             </div>
-            <div class="correct"></div>
-            <div class="incorrect"></div>
-            <div class="not-answered"></div>
-        </div>  
-            
+
+            <button type="button" class="btn btn-default btn-lg btn-primary startBtn">Start</button>
+
+        </div>
+        <div class="correct"></div>
+        <div class="incorrect"></div>
+        <div class="not-answered"></div>
+    </div>
+
     </div>
 
     <script src="Assets/javascript/app.js"></script>
