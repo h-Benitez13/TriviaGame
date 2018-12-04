@@ -130,6 +130,8 @@ function startGame() {
         $('.optionA').click(function() {
             if(optionA === questAnswers.q1 ) {
                 console.log("TRRUE");
+                alert("winner ");
+
             } 
         })
         $('.optionB').click(function(){
@@ -138,12 +140,12 @@ function startGame() {
             }
         })
         $('.optionC').click(function(){
-            if(optionB){
+            if(optionC){
                 console.log("false")
             }
         })
         $('.optionD').click(function(){
-            if(optionB){
+            if(optionD){
                 console.log("false")
             }
         })
