@@ -1,19 +1,19 @@
-body,html{
-height: 100%;
-margin:0;
-background-image: url('../images/big_mic.png');
-height: 100%;
-background-position: center;
-background-repeat: none;
-background-size: cover;
+body {
+    background-image: url('../images/Microphone.jpg');
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
 }
 
 .jumbotron{
     background-color: white;
     width: 500px;
-    height: 400px;
+    height: 500px;
     padding:100px;
-    margin: 100px 0 0 100px;
+    margin: 150px 0 100px 20px;
+    opacity: 0.9;
 }
 
 .timeLeft{
@@ -21,7 +21,9 @@ background-size: cover;
     
 }
 
-.btn-secondary{
+.btn-primary{
     margin-top: 10px;
+    background-color: yellow;
+    color: black;
     
 }

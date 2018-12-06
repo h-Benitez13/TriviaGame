@@ -18,8 +18,7 @@ var questions = {
     q2c: 'turtle',
     q2d: 'wtf',
 
-    q3: 'where tf are my...',
-    q4: 'OH shes a _____ house'
+    q3: 'where tf are my',
 
 
 
@@ -30,7 +29,6 @@ var questAnswers = {
     q1: 'no this is patrick',
     q2: 'turtle',
     q3: 'keys',
-    q4: 'brick',
 
 }
 // once again empty variables so i can later push towards 
@@ -50,7 +48,6 @@ function startGame() {
     $('.possAns').hide();
     $('.quest-q2').hide();
     $('.quest-q3').hide();
-    $('.quest-q4').hide();
 
     $('.timeLeft').hide();
     timeCount();
@@ -127,9 +124,6 @@ function startGame() {
             if (optionA === questAnswers.q1) {
                 clearInterval(intervalID);
                 console.log("TRRUE");
-                time = time;
-                console.log(time);
-                alert("winner ");
                 $('.btnContainer').hide();
                 $('.possAns').hide();
                 quest2();
@@ -204,29 +198,21 @@ function startGame() {
             if(quest2A) {
                 console.log("false");
                 $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
-
+              
             }
         })
         $('.quest2B').click(function(){
             if(quest2B) {
                 console.log("false");
                 $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
-
+              
             }
         })
         $('.quest2C').click(function(){
             if(quest2C === questAnswers.q2) {
                 console.log("true");
                 $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
+              
 
             }
         })
@@ -234,84 +220,13 @@ function startGame() {
             if(quest2D) {
                 console.log("false");
                 $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
+              
 
             }
         })
     } optionGroovy();
 
-    function quest3() {
-        $('.quest-q3').show();
-        // create a new div to include the question
-        var newDiv = $('<div class="quest-q3" style="font-size: 25px;">');
-        // print the question on the html
-        newDiv.html(questions.q3);
-        // append the question div inside the button container so it takes
-        // the position of the question
-        $('.quest-q3').append(newDiv);
-    }
-    function options3() {
-        $('.quest-q3').append($('.questAns3'));
-        $('.quest3A').html("nips");
-        $('.questAns3').append($('.quest3A'));
-
-        $('.quest3B').html('keys');
-        $('.questAns3').append($('.quest3B'));
-
-        $('.quest3C').html('wallet');
-        $('.questAns3').append($('.quest3C'));
-
-        $('.quest3D').html('car');
-        $('.questAns3').append($('.quest3D'));
-    }
-    var quest3A = 'no';
-    var quest3B ='yes';
-    var quest3C = 'turtle';
-    var quest3D = 'wtf';
-    function optionGetDown() {
-        $('.quest2A').click(function(){
-            if(quest2A) {
-                console.log("false");
-                $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
-
-            }
-        })
-        $('.quest2B').click(function(){
-            if(quest2B) {
-                console.log("false");
-                $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
-
-            }
-        })
-        $('.quest2C').click(function(){
-            if(quest2C === questAnswers.q2) {
-                console.log("true");
-                $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
-
-            }
-        })
-        $('.quest2D').click(function() {
-            if(quest2D) {
-                console.log("false");
-                $('.quest-q2').hide();
-                quest3();
-                options3();
-                optionGetDown();
-
-            }
-        })
-    } optionGroovy();
+    
 
 
 
