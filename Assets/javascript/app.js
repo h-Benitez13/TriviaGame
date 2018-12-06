@@ -2,7 +2,7 @@
 // empty variables for correctAnswers, wrongAnswers, intervalID (to call later)
 // and finally ones where the user ran out of time
 
-var time =15;
+var time = 16;
 
 // gotta stick with what you know kid 
 var questions = {
@@ -16,7 +16,10 @@ var questions = {
     q2a: 'no ',
     q2b: 'yes',
     q2c: 'turtle',
-    q2d: 'wtf'
+    q2d: 'wtf',
+
+    q3: 'where tf are my...',
+    q4: 'OH shes a _____ house'
 
 
 
@@ -26,6 +29,8 @@ var questions = {
 var questAnswers = {
     q1: 'no this is patrick',
     q2: 'turtle',
+    q3: 'keys',
+    q4: 'brick',
 
 }
 // once again empty variables so i can later push towards 
@@ -43,7 +48,13 @@ console.log(questions.q1);
 function startGame() {
 
     $('.possAns').hide();
-    
+    $('.quest-q2').hide();
+    $('.quest-q3').hide();
+    $('.quest-q4').hide();
+
+    $('.timeLeft').hide();
+    timeCount();
+
     // as the page loads, there will have the amazing title
     // the startgame button 
     // maybe ill add another button for motivational music but time will tell
@@ -55,11 +66,14 @@ function startGame() {
             $('button').remove('.startBtn');
             // once the button is clicked, the button and title will disappear
             $('.titleGame').remove();
+
+            $('.timeLeft').show();
             // i want it to run question 1
             quest1();
             questOptions();
+
             // set the time count to inc/dec by 1 second
-            intervalId = setInterval(timeCount, 1000);
+            timeCount(intervalId = setInterval(timeCount, 1000));
 
 
         });
@@ -69,51 +83,33 @@ function startGame() {
     // function por primera pregunta
 
     function quest1() {
-
-       
-
         // create a new div to include the question
         var newDiv = $('<div class="quest_q1" style="font-size: 25px;">');
         // print the question on the html
         newDiv.html(questions.q1);
-        // for the question we need 4 different options
-        // optionA
-        // create a new div to contain the button 
-
-    
-
         // append the question div inside the button container so it takes
         // the position of the question
         $('.btnContainer').append(newDiv);
-
-
-
-
     }
     // function specifically for options of quest1
     function questOptions() {
         $('.possAns').show()
-        var optionA = $('.optionA');
+        // var optionA = $('.optionA');
         // print the question on the button
-        optionA.html(questions.qa);
+        $('.optionA').html(questions.qa);
         // append the div from the hmtl to the new div created here
-        $('.possAns').append(optionA);
+        $('.possAns').append($('.optionA'));
 
         // repeat this method for options B-D
-
         // option B
         var optionB = $('.optionB');
         optionB.html(questions.qb);
         $('.possAns').append(optionB);
-
-
         // option C
         var optionC = $('.optionC');
         optionC.html(questions.qc);
         $('.possAns').append(optionC);
-
         // option D
-
         var optionD = $('.optionD');
         optionD.html(questions.qd);
         $('.possAns').append(optionD);
@@ -122,44 +118,210 @@ function startGame() {
     // rename the options to be able to call them within the function!
     var optionA = 'no this is patrick';
     var optionB = questions.qb;
-    var optionC= questions.qc;
-    var optionD= questions.qd;
+    var optionC = questions.qc;
+    var optionD = questions.qd;
 
     // fucntion to run clickable buttons 
     function optionFunk() {
-        $('.optionA').click(function() {
-            if(optionA === questAnswers.q1 ) {
+        $('.optionA').click(function () {
+            if (optionA === questAnswers.q1) {
+                clearInterval(intervalID);
                 console.log("TRRUE");
+                time = time;
+                console.log(time);
                 alert("winner ");
-
-            } 
+                $('.btnContainer').hide();
+                $('.possAns').hide();
+                quest2();
+                options2();
+                optionGroovy();
+            };
         })
-        $('.optionB').click(function(){
-            if(optionB){
-                console.log("false")
+        $('.optionB').click(function () {
+            if (optionB) {
+                console.log("false");
+                $('.btnContainer').hide();
+                $('.possAns').hide();
+                quest2();
+                options2();
+                optionGroovy();
             }
         })
-        $('.optionC').click(function(){
-            if(optionC){
-                console.log("false")
+        $('.optionC').click(function () {
+            if (optionC) {
+                console.log("false");
+                $('.btnContainer').hide();
+                $('.possAns').hide();
+                quest2();
+                options2();
+                optionGroovy();
             }
         })
-        $('.optionD').click(function(){
-            if(optionD){
-                console.log("false")
+        $('.optionD').click(function () {
+            if (optionD) {
+                console.log("false");
+                $('.btnContainer').hide();
+                $('.possAns').hide();
+                quest2();
+                options2();
+                optionGroovy();
             }
         })
     } optionFunk();
+
+    function quest2() {
+        $('.quest-q2').show();
+        // create a new div to include the question
+        var newDiv = $('<div class="quest_q2" style="font-size: 25px;">');
+        // print the question on the html
+        newDiv.html(questions.q2);
+        // append the question div inside the button container so it takes
+        // the position of the question
+        $('.quest-q2').append(newDiv);
+
+    }
+    function options2() {
+        $('.quest-q2').append($('.questAns2'));
+        $('.quest2A').html(questions.q2a);
+        $('.questAns2').append($('.quest2A'));
+
+        $('.quest2B').html(questions.q2b);
+        $('.questAns2').append($('.quest2B'));
+
+        $('.quest2C').html(questions.q2c);
+        $('.questAns2').append($('.quest2C'));
+
+        $('.quest2D').html(questions.q2d);
+        $('.questAns2').append($('.quest2D'));
+    }
+
+    var quest2A = 'no';
+    var quest2B ='yes';
+    var quest2C = 'turtle';
+    var quest2D = 'wtf';
+    function optionGroovy() {
+        $('.quest2A').click(function(){
+            if(quest2A) {
+                console.log("false");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+        $('.quest2B').click(function(){
+            if(quest2B) {
+                console.log("false");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+        $('.quest2C').click(function(){
+            if(quest2C === questAnswers.q2) {
+                console.log("true");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+        $('.quest2D').click(function() {
+            if(quest2D) {
+                console.log("false");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+    } optionGroovy();
+
+    function quest3() {
+        $('.quest-q3').show();
+        // create a new div to include the question
+        var newDiv = $('<div class="quest-q3" style="font-size: 25px;">');
+        // print the question on the html
+        newDiv.html(questions.q3);
+        // append the question div inside the button container so it takes
+        // the position of the question
+        $('.quest-q3').append(newDiv);
+    }
+    function options3() {
+        $('.quest-q3').append($('.questAns3'));
+        $('.quest3A').html("nips");
+        $('.questAns3').append($('.quest3A'));
+
+        $('.quest3B').html('keys');
+        $('.questAns3').append($('.quest3B'));
+
+        $('.quest3C').html('wallet');
+        $('.questAns3').append($('.quest3C'));
+
+        $('.quest3D').html('car');
+        $('.questAns3').append($('.quest3D'));
+    }
+    var quest3A = 'no';
+    var quest3B ='yes';
+    var quest3C = 'turtle';
+    var quest3D = 'wtf';
+    function optionGetDown() {
+        $('.quest2A').click(function(){
+            if(quest2A) {
+                console.log("false");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+        $('.quest2B').click(function(){
+            if(quest2B) {
+                console.log("false");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+        $('.quest2C').click(function(){
+            if(quest2C === questAnswers.q2) {
+                console.log("true");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+        $('.quest2D').click(function() {
+            if(quest2D) {
+                console.log("false");
+                $('.quest-q2').hide();
+                quest3();
+                options3();
+                optionGetDown();
+
+            }
+        })
+    } optionGroovy();
 
 
 
 
     // here is for the timer
     // create a function for the time to decrease
+    var clockrun = false;
 
     function timeCount() {
         // we want time to go down by 1 (time clock)
-
         time--;
         // making sure the time is actually going down like we wanted
         console.log(time);
@@ -167,6 +329,8 @@ function startGame() {
         // if it works in the console it should work to print on the html
         // call the div in the html and wathc that baby work 
         $('.timeLeft').html(time);
+
+        clockrun = true;
 
         // create IF statement to take away the clearInterval so it doesnt continue 
         // running 
@@ -176,28 +340,12 @@ function startGame() {
             clearInterval(intervalId);
             console.log(true);
         }
-        
 
+    }
 
-
-
-
-        // function to for the end of the game
-        // total number of correct answers
-        // total incorrect answers
-        // total answers ran out of time
-
-        // function finalScore() {
-        //     $('.correct').html("Total Correct: " + correctAnswer);
-        //     console.log(correctAnswer);
-        //     $('incorrect').html("Total Incorrect: " + wrongAnswers);
-        //     console.log(wrongAnswers);
-        //     $('not-answered').html("Not Answered: " + didNotAnswer);
-        //     console.log(didNotAnswer);
-
-
-        // }
-        // finalScore();
+    function stopTime() {
+        clearInterval(timeCount());
+        clockrun = false;
     }
     gamePlay();
 
