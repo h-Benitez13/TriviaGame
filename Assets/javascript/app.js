@@ -19,6 +19,7 @@ var questions = {
     q2d: 'wtf',
 
     q3: 'where tf are my',
+    
 
 
 
@@ -28,7 +29,7 @@ var questions = {
 var questAnswers = {
     q1: 'no this is patrick',
     q2: 'turtle',
-    q3: 'keys',
+    q3: 'DAMAGE',
 
 }
 // once again empty variables so i can later push towards 
@@ -47,7 +48,7 @@ function startGame() {
 
     $('.possAns').hide();
     $('.quest-q2').hide();
-    $('.quest-q3').hide();
+    $('.final').hide();
 
     $('.timeLeft').hide();
     timeCount();
@@ -198,6 +199,9 @@ function startGame() {
             if(quest2A) {
                 console.log("false");
                 $('.quest-q2').hide();
+                finalQ();
+                finalOptions();
+                theGetDown();
               
             }
         })
@@ -205,6 +209,11 @@ function startGame() {
             if(quest2B) {
                 console.log("false");
                 $('.quest-q2').hide();
+
+                finalQ();
+                finalOptions();
+                theGetDown();
+            
               
             }
         })
@@ -212,6 +221,10 @@ function startGame() {
             if(quest2C === questAnswers.q2) {
                 console.log("true");
                 $('.quest-q2').hide();
+
+                finalQ();
+                finalOptions();
+                theGetDown();
               
 
             }
@@ -220,11 +233,65 @@ function startGame() {
             if(quest2D) {
                 console.log("false");
                 $('.quest-q2').hide();
+
+                finalQ();
+                finalOptions();
+                theGetDown();
               
 
             }
         })
     } optionGroovy();
+    
+    function finalQ() {
+        $('.final').show();
+      var action = $('<div class="finalQuestion" />');
+      action.html($('<h1>' + "what the actual fuck" + '</h1>'));
+      $('.final').prepend(action);
+        
+
+    }
+    function finalOptions() {
+        $('.finA').html("lets");
+        $('.finalSong').append($('.finA'));
+
+        $('.finB').html('do' );
+        $('.finalSong').append($('.finB'));
+
+        $('.finC').html('moooofuckin');
+        $('.finalSong').append($('.finC'));
+
+        $('.finD').html('DAMAGE');
+        $('.finalSong').append($('.finD'));
+    }
+    var finA = 'lets'
+    var finB = 'do '
+    var finC = 'moooofuckin'
+    var finD = 'DAMAGE '
+
+    function theGetDown (){
+        $('.finA').click(function() {
+            if(finA) {
+                console.log('false');
+            }
+        })
+        $('.finB').click(function() {
+            if(finB) {
+                console.log('false');
+            }
+        })
+        $('.finC').click(function() {
+            if(finC){
+                console.log('false');
+
+            }
+        })
+        $('.finD').click(function() {
+            if(finD === questAnswers.q3) {
+                console.log('win');
+            }
+        })
+    }theGetDown();
 
     
 
