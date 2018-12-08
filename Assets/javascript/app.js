@@ -73,7 +73,6 @@ function startGame() {
             // set the time count to inc/dec by 1 second
             timeCount(intervalId = setInterval(timeCount, 1000));
 
-
         });
 
 
@@ -88,9 +87,6 @@ function startGame() {
         // append the question div inside the button container so it takes
         // the position of the question
         $('.btnContainer').append(newDiv);
-    }
-    // function specifically for options of quest1
-    function questOptions() {
         $('.possAns').show()
         // var optionA = $('.optionA');
         // print the question on the button
@@ -111,8 +107,8 @@ function startGame() {
         var optionD = $('.optionD');
         optionD.html(questions.qd);
         $('.possAns').append(optionD);
-
     }
+  
     // rename the options to be able to call them within the function!
     var optionA = 'no this is patrick';
     var optionB = questions.qb;
@@ -173,9 +169,6 @@ function startGame() {
         // append the question div inside the button container so it takes
         // the position of the question
         $('.quest-q2').append(newDiv);
-
-    }
-    function options2() {
         $('.quest-q2').append($('.questAns2'));
         $('.quest2A').html(questions.q2a);
         $('.questAns2').append($('.quest2A'));
@@ -188,8 +181,9 @@ function startGame() {
 
         $('.quest2D').html(questions.q2d);
         $('.questAns2').append($('.quest2D'));
-    }
 
+    }
+   
     var quest2A = 'no';
     var quest2B ='yes';
     var quest2C = 'turtle';
@@ -245,91 +239,100 @@ function startGame() {
     
     function finalQ() {
         $('.final').show();
-      var action = $('<div class="finalQuestion" />');
-      action.html($('<h1>' + "what the actual fuck" + '</h1>'));
-      $('.final').prepend(action);
+        var action = $('<div class="finalQuestion" />');
+        action.html($('<h1>' + "what the actual fuck" + '</h1>'));
+        $('.final').prepend(action);
         
-
     }
+    
     function finalOptions() {
         $('.finA').html("lets");
         $('.finalSong').append($('.finA'));
-
+        
         $('.finB').html('do' );
         $('.finalSong').append($('.finB'));
-
+        
         $('.finC').html('moooofuckin');
         $('.finalSong').append($('.finC'));
-
+        
         $('.finD').html('DAMAGE');
         $('.finalSong').append($('.finD'));
+        
     }
     var finA = 'lets'
     var finB = 'do '
     var finC = 'moooofuckin'
     var finD = 'DAMAGE '
-
+    
     function theGetDown (){
         $('.finA').click(function() {
             if(finA) {
                 console.log('false');
+                $('.final').hide();
+                scoreSheet();
             }
         })
         $('.finB').click(function() {
             if(finB) {
                 console.log('false');
+                $('.final').hide();
+                scoreSheet();
             }
         })
         $('.finC').click(function() {
             if(finC){
                 console.log('false');
-
+                $('.final').hide();
+                scoreSheet();
             }
         })
         $('.finD').click(function() {
             if(finD === questAnswers.q3) {
-                console.log('win');
+                console.log("winner");
+                $('.final').hide();
+                scoreSheet();
             }
         })
-    }theGetDown();
+        
+    };
 
     
+    
 
-
-
-
+    
     // here is for the timer
     // create a function for the time to decrease
     var clockrun = false;
-
+    
     function timeCount() {
         // we want time to go down by 1 (time clock)
         time--;
         // making sure the time is actually going down like we wanted
         console.log(time);
-
+        
         // if it works in the console it should work to print on the html
         // call the div in the html and wathc that baby work 
         $('.timeLeft').html(time);
-
+        
         clockrun = true;
-
+        
         // create IF statement to take away the clearInterval so it doesnt continue 
         // running 
-
+        
         if (time === 0) {
-
+            
+            
             clearInterval(intervalId);
             console.log(true);
         }
-
+        
     }
-
+    
     function stopTime() {
         clearInterval(timeCount());
         clockrun = false;
     }
     gamePlay();
-
+    
 }
 startGame();
